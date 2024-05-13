@@ -95,7 +95,7 @@ unifiedPublishing {
 	project {
 		displayName.set "[Forge $project.supported_version] v$project.version"
 		releaseType.set "release"
-		gameVersions.set(["1.20", "1.20.1"])
+		gameVersions.set(["1.20", "1.20.1", "1.20.2", "1.20.3", "1.20.4"])
 		gameLoaders.set(["forge"])
 
 		relations {
