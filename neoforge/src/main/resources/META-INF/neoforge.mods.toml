@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[42,)"
+loaderVersion="[1,)"
 license="MIT License"
 
 [[mods]]
@@ -14,23 +14,26 @@ logoFile = "icon.png"
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/suggestion-tweaker"
 issueTrackerURL = "https://github.com/VelizarBG/suggestion-tweaker/issues"
 
+[[mixins]]
+config = "suggestion_tweaker-common.mixins.json"
+
 [[dependencies.suggestion_tweaker]]
-modId = "forge"
-mandatory = true
-versionRange = "[42,)"
+modId = "neoforge"
+type = "required"
+versionRange = "[20.5.0-beta,)"
 ordering = "NONE"
 side = "BOTH" # BOTH, CLIENT or SERVER
 
 [[dependencies.suggestion_tweaker]]
 modId = "minecraft"
-mandatory = true
-versionRange = "[1.19.1,)"
+type = "required"
+versionRange = "[1.20.5,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.suggestion_tweaker]]
 modId = "cloth_config"
-mandatory = true
+type = "required"
 versionRange = "[${cloth_version},)"
 ordering = "NONE"
 side = "BOTH"

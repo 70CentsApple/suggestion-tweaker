@@ -49,4 +49,4 @@ Credit goes to SnaveSutit for the cool idea!
 * Clone the repository
 * Open a command prompt/terminal to the repository directory
 * Run 'gradlew build'
-* The built jar files will be in fabric/build/libs/ and forge/build/libs
+* The built jar files will be in fabric/build/libs/ and neoforge/build/libs

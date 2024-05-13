@@ -13,13 +13,28 @@ subprojects {
 	apply plugin: 'dev.architectury.loom'
 	apply plugin: 'com.github.johnrengelman.shadow'
 
+	repositories {
+		maven { // vineflower
+			name = "sonatype-oss-snapshots1"
+			url = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+		}
+	}
+
 	loom {
 		silentMojangMappingsLicense()
 	}
 
 	dependencies {
+		vineflowerDecompilerClasspath "org.vineflower:vineflower:1.11.0-SNAPSHOT" artifact {
+			url = 'https://s01.oss.sonatype.org/content/repositories/snapshots/org/vineflower/vineflower/1.11.0-SNAPSHOT/vineflower-1.11.0-20240501.032551-24.jar'
+		}
+
 		minecraft "com.mojang:minecraft:${rootProject.architectury.minecraft}"
-		mappings "net.fabricmc:yarn:${rootProject.yarn_mappings}:v2"
+		// necessary to patch "unfixable conflicts" error; check if fixed better in the future
+		mappings loom.layered() {
+			it.mappings("net.fabricmc:yarn:${rootProject.yarn_mappings}:v2")
+			it.mappings("dev.architectury:yarn-mappings-patch-neoforge:${project.yarn_mappings_patch_version}")
+		}
 	}
 }
 
@@ -39,8 +54,8 @@ allprojects {
 		// If Javadoc is generated, this must be specified in that task too.
 		options.encoding = "UTF-8"
 
-		// Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
-		options.release = 17
+		// Minecraft 1.20.5 upwards uses Java 21.
+		options.release = 21
 	}
 
 	java {

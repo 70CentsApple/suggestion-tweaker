@@ -1,9 +1,9 @@
-package velizarbg.suggestion_tweaker.forge;
+package velizarbg.suggestion_tweaker.neoforge;
 
 import me.shedaniel.autoconfig.AutoConfig;
-import net.minecraftforge.client.ConfigScreenHandler;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import velizarbg.suggestion_tweaker.Constants;
 import velizarbg.suggestion_tweaker.ModConfig;
 
@@ -15,8 +15,8 @@ public class SuggestionTweaker {
 		Constants.config = ModConfig.init();
 
 		// register config screen
-		ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory((client, parent) ->
+		ModLoadingContext.get().registerExtensionPoint(IConfigScreenFactory.class, () -> (client, parent) ->
 			AutoConfig.getConfigScreen(ModConfig.class, parent).get()
-		));
+		);
 	}
 }

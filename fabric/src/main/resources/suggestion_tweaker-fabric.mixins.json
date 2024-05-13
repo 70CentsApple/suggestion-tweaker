@@ -2,9 +2,8 @@
     "required": true,
     "minVersion": "0.8",
     "package": "velizarbg.suggestion_tweaker.fabric.mixins",
-    "compatibilityLevel": "JAVA_17",
+    "compatibilityLevel": "JAVA_21",
     "mixins": [
-        "CommandSourceMixin",
         "LiteralCommandNodeMixin"
     ],
     "injectors": {
