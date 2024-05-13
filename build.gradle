@@ -1,9 +1,8 @@
 plugins {
 	id 'architectury-plugin' version '3.4-SNAPSHOT'
-	id 'dev.architectury.loom' version '1.2-SNAPSHOT' apply false
-	id 'io.github.juuxel.loom-vineflower' version '1.11.0' apply false
+	id 'dev.architectury.loom' version '1.6.397' apply false
 	id "me.shedaniel.unified-publishing" version "0.1.+" apply false
-	id 'com.github.johnrengelman.shadow' version '7.0.0' apply false
+	id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
 }
 
 architectury {
@@ -12,7 +11,6 @@ architectury {
 
 subprojects {
 	apply plugin: 'dev.architectury.loom'
-	apply plugin: 'io.github.juuxel.loom-quiltflower'
 	apply plugin: 'com.github.johnrengelman.shadow'
 
 	loom {
